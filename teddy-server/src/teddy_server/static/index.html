@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tedd-EH - Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Tedd-EH</h1>
+            <div class="status-indicator" id="connection-status">Disconnected</div>
+        </header>
+
+        <main>
+            <section class="dolls-panel">
+                <h2>Connected Dolls</h2>
+                <div id="doll-list" class="doll-list">
+                    <p class="empty-state">No dolls connected</p>
+                </div>
+            </section>
+
+            <section class="control-panel">
+                <h2>Control Panel</h2>
+                <div id="selected-doll-info">
+                    <p class="empty-state">Select a doll to control</p>
+                </div>
+
+                <div id="controls" class="controls hidden">
+                    <div class="control-group">
+                        <h3>Text Message</h3>
+                        <textarea id="message-text" placeholder="Type a message..."></textarea>
+                        <button id="send-message">Send</button>
+                    </div>
+
+                    <div class="control-group">
+                        <h3>Servo Control</h3>
+                        <div class="servo-row">
+                            <label>Channel: <input type="number" id="servo-channel" min="0" max="15" value="0"></label>
+                            <label>Angle: <input type="range" id="servo-angle" min="0" max="180" value="90"></label>
+                            <span id="servo-angle-display">90</span>
+                            <button id="send-servo">Move</button>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <h3>Expressions</h3>
+                        <div class="button-row">
+                            <button class="expr-btn" data-expr="happy">Happy</button>
+                            <button class="expr-btn" data-expr="sad">Sad</button>
+                            <button class="expr-btn" data-expr="surprised">Surprised</button>
+                            <button class="expr-btn" data-expr="angry">Angry</button>
+                            <button class="expr-btn" data-expr="neutral">Neutral</button>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <h3>Actions</h3>
+                        <div class="button-row">
+                            <button class="action-btn" data-action="wave_left">Wave Left</button>
+                            <button class="action-btn" data-action="wave_right">Wave Right</button>
+                            <button class="action-btn" data-action="nod">Nod</button>
+                            <button class="action-btn" data-action="shake_head">Shake Head</button>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <h3>Speech</h3>
+                        <button id="stop-speaking" class="danger">Stop Speaking</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="conversation-panel">
+                <h2>Conversation</h2>
+                <div id="conversation-log" class="conversation-log"></div>
+            </section>
+
+            <section class="video-panel">
+                <h2>Video Feed</h2>
+                <div id="video-container" class="video-container">
+                    <p class="empty-state">No video feed</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Tedd-EH - Server v0.1.0</p>
+        </footer>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
